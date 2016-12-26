@@ -6,16 +6,20 @@ from climaf.site_settings import *
 import atmos_plot_params
 # --> for ocean
 import ocean_plot_params
+# --> for land
+import land_plot_params
 
 centerspecs=False
 # --> Import the sets of plot parameters that are specific to the centers (CNRM or IPSL)
 if atCNRM:
    import atmos_plot_params_CNRM as atmos_plot_params_centerspecs
    import ocean_plot_params_CNRM as ocean_plot_params_centerspecs
+   import land_plot_params_CNRM as land_plot_params_centerspecs
    centerspecs=True
 if atIPSL:
    import atmos_plot_params_IPSL as atmos_plot_params_centerspecs
    import ocean_plot_params_IPSL as ocean_plot_params_centerspecs
+   import land_plot_params_IPSL as land_plot_params_centerspecs
    centerspecs=True
 
 def plot_params(variable,context, custom_plot_params=None) :
@@ -77,10 +81,12 @@ def plot_params(variable,context, custom_plot_params=None) :
     # --> Adding the default plot params
     per_variable.update(atmos_plot_params.dict_plot_params)
     per_variable.update(ocean_plot_params.dict_plot_params)
+    per_variable.update(land_plot_params.dict_plot_params)
     if centerspecs : 
        # --> Then, add the plot params specific to the centers
        per_variable.update(atmos_plot_params_centerspecs.dict_plot_params)
        per_variable.update(ocean_plot_params_centerspecs.dict_plot_params)
+       per_variable.update(land_plot_params_centerspecs.dict_plot_params)
     # --> If needed, adding a custom dictionnary of plot params
     if custom_plot_params:
        per_variable.update(custom_plot_params)

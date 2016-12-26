@@ -77,7 +77,7 @@ dict_plot_params = {
         # -- Sea ice variables
         'sic'  : {
             'default' : { 'color' : 'WhViBlGrYeOrRe' , 'units':'%', 'focus':'ocean'},
-            'full_field'   : {'colors' : "15 20 25 30 40 50 60 70 80 85 90 95"},
+            'full_field'   : {'colors' : "15 20 25 30 40 50 60 70 80 85 90 95",'contours':'15'},
             'bias'        : {'colors' : '-50 -40 -30 -25 -20 -15 -10 -5 -1 1 5 10 15 20 25 30 40 50', 'color': 'temp_diff_18lev'},
             'model_model' : {'colors' : '-50 -40 -30 -25 -20 -15 -10 -5 -1 1 5 10 15 20 25 30 40 50', 'color': 'temp_diff_18lev'},
         },

@@ -76,7 +76,8 @@ if (root) :
 ##########################################################################################
 
 
-cproject('ref_ts', ('frequency','monthly'), ('product','*'), ('period','1900-2050'))
+cproject('ref_ts', ('frequency','monthly'), ('product','*'), ('period','1900-2050'), separator='%')
+#cproject('ref_ts', ('frequency','monthly'), ('product','*'), ('period','1900-2050'), separator='.')
 cfreqs('ref_ts', {'monthly':'mo' , 'daily':'day' })
 
 cdef('variable'    , '*'            , project='ref_ts')

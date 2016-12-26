@@ -83,6 +83,17 @@ def close_table() :
 def open_line(title="") :
     return(' <TR>\n <TH ALIGN=LEFT> <li>'+title+'</li> </TH> \n')
 
+def compareCompanion():
+    """ Includes the compareCompanion Javascript functionality
+        developed by Patrick Brockmann (patrick.brockmann@lsce.ipsl.fr)
+        The compareCompanion gives the possibility to put a selection
+        of figures in a basket and create a new html page with this selection.
+        In this new page the figures can be switched and the number of columns
+        displaid is controlled with a slider (in the lower right corner)
+    """
+    return(' <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>\n <script type="text/javascript" src="https://cdn.rawgit.com/PBrockmann/compareCompanion/master/compareCompanion.js"></script> \n')
+
+
 def close_line() :
     return(' </TR>\n')
 

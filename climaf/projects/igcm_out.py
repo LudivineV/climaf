@@ -181,6 +181,7 @@ if root:
    calias("IGCM_OUT", 'mlotst'  ,'mldr10_3'                 , filenameVar='grid_T')
    calias("IGCM_OUT", 'mlddt02' ,'mld_dt02'                 , filenameVar='grid_T')
    calias("IGCM_OUT", 'hc300'               ,   scale=1.E-9 , filenameVar='grid_T')
+   calias("IGCM_OUT", 'wfo'                                 , filenameVar='grid_T')
    
    # ICE
    calias("IGCM_OUT", 'sic'   ,    'siconc',   scale=100 , filenameVar="icemod") 
@@ -195,6 +196,7 @@ if root:
    calias("IGCM_OUT", 'uas'     ,'u10m'    ,filenameVar='histmth')
    calias("IGCM_OUT", 'vas'     ,'v10m'    ,filenameVar='histmth')
    calias("IGCM_OUT", 'sfcWind' ,'wind10m' ,filenameVar='histmth')
+   calias("IGCM_OUT", 'hurs'    ,'rh2m'    ,filenameVar='histmth')
    
    # 3D Variables
    calias("IGCM_OUT", 'ta'  , filenameVar='histmthNMC')
@@ -236,7 +238,9 @@ if root:
    calias("IGCM_OUT", 'rldscs' ,'LWdnSFCclr'  ,filenameVar='histmth')
    calias("IGCM_OUT", 'rsdscs' ,'SWdnSFCclr'  ,filenameVar='histmth')
    
-   
+   # -- Land surface - ORCHIDEE
+   calias("IGCM_OUT", 'gpp'   , scale=1000  ,filenameVar='sechiba_history')
+
    
    # ---------------------------------------------------------------------------------------------- #
    # --> Aliases to the old IGCM_OUT names (to take advantage of offset, scale and filenameVar)  -- #

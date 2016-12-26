@@ -83,6 +83,8 @@ from cache     import craz, csync, cdump, cdrop,  clist, cls, crm, cdu, cwc
 from clogging  import clogger, clog, clog_file
 from site_settings import atCNRM, onCiclad, atTGCC, atIDRIS, atIPSL, onSpip
 from plot.plot_params import plot_params, hovm_params
+from plot.varlongname import varlongname
+from derived_variables import *
 from functions import * 
 
 #: Path for the CliMAF package. From here, can write e.g. ``cpath+"../scripts"``. The value shown in the doc is not meaningful for your own CliMAF install

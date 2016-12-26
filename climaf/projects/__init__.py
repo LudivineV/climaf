@@ -35,4 +35,4 @@ by : in project 'erai', standard variable 'clt' is read from data variable 'tcc'
 
 """
 
-__all__=[ "example", "cami", "cmip5", "ocmip5" , "obs4mips" , "em" , "erai", "erai_land", "gpcc", "gpcp", "ceres", "cruts3", "file", "ref_climatos_and_ts", "igcm_out", "igcm_out_old", "igcm_out_cmip", "emn36" ]
+__all__=[ "example", "cami", "cmip5", "ocmip5" , "obs4mips" , "em" , "erai", "erai_land", "gpcc", "gpcp", "ceres", "cruts3", "file", "ref_climatos_and_ts", "igcm_out", "igcm_out_old", "igcm_out_cmip", "emn36" ,"nemo", "OBS_4_EVAL", "data_land-surface_cmip5", "data_land-surface_user"]
