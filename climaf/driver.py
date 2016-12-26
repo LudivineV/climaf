@@ -268,16 +268,21 @@ def ceval(cobject, userflags=None, format="MaskedArray",
             ########################################################################
             it,comp_period=cache.hasBeginObject(cobject) 
             clogger.debug("Finished with searching cache for begin  object for : " + `cobject`)
-            #it=None
+            it=None
             if it : 
                 clogger.info("partial result found in cache for %s : %s"%\
                              (cobject.crs,it.crs))
                 begcrs=it.crs
                 # Turn object for begin in complement object for end, and eval it
-                it.setperiod(comp_period)
-                ceval(it,userflags,format,deep,derived_list,recurse_list)
+                comp=copy.deepcopy(it)
+                comp.setperiod(comp_period)
+#                it.setperiod(comp_period)
+                
+#                ceval(it,userflags,format,deep,derived_list,recurse_list)
+                ceval(comp,userflags,format,deep,derived_list,recurse_list)
                 if (format == 'file') :
-                    rep=cache.complement(begcrs,it.crs,cobject.crs)
+                    rep=cache.complement(begcrs,comp.crs,cobject.crs)
+#                    rep=cache.complement(begcrs,it.crs,cobject.crs)
                     cdedent()
                     return rep
                 else : raise Climaf_Driver_Error("cannot yet complement except for files")

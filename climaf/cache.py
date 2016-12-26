@@ -274,6 +274,7 @@ def hasMatchingObject(cobject,ds_func) :
     def op_squeezes_time(operator):
         return not operators.scripts[operator].flags.commuteWithTimeConcatenation 
     #
+
     global crs2eval
     key_to_rm=list()
     for crs in crs2filename.copy() :
@@ -281,10 +282,11 @@ def hasMatchingObject(cobject,ds_func) :
         if co is None:
             try: 
                 co=eval(crs, sys.modules['__main__'].__dict__)
-                crs2eval[crs]=co
+                if co: crs2eval[crs]=co
             except:
                 pass # usually case of a CRS which project is not currently defined
-        altperiod=compare_trees(co,cobject, ds_func,op_squeezes_time)
+        
+        if co: altperiod=compare_trees(co,cobject, ds_func,op_squeezes_time)
         if altperiod :
             if os.path.exists(crs2filename[crs]) :
                 return co,altperiod
@@ -310,13 +312,21 @@ def hasBeginObject(cobject) :
 def hasExactObject(cobject) :
     # First read index from file if it is yet empty
     # NO! : done at startup - if len(crs2filename.keys()) == 0 : cload()
-    f=crs2filename.get(cobject.crs,None)
-    if f:
+    if cobject.crs in crs2filename :
+        f=crs2filename[cobject.crs]
         if os.path.exists(f) :
             return f
         else :
             clogger.debug("Dropping cobject.crs from cache index, because file si missing")
             crs2filename.pop(cobject.crs)
+    
+#    f=crs2filename.get(cobject.crs,None)
+#    if f:
+#        if os.path.exists(f) :
+#            return f
+#        else :
+#            clogger.debug("Dropping cobject.crs from cache index, because file si missing")
+#            crs2filename.pop(cobject.crs)
     
 def complement(crsb, crse, crs) :
     """ Extends time period of file object of CRSB (B for 'begin')
